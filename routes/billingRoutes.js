@@ -3,6 +3,7 @@ const stripe = require('stripe')(keys.stripeSecretKey);
 const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = app => {
+	console.log('stripe key on vbackend', stripe);
 	//post to the stripe servers
 	app.post('/api/stripe', requireLogin, async (req, res) => {
 		const charge = await stripe.charges.create({
