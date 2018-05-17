@@ -1,6 +1,7 @@
 const passport = require('passport');
 
 module.exports = app => {
+	//route to get to Google oauth
 	app.get(
 		'/auth/google',
 		passport.authenticate('google', {
@@ -15,11 +16,12 @@ module.exports = app => {
 			res.redirect('/surveys');
 		}
 	);
-
+	//log the user out and redirect them to the home page
 	app.get('/api/logout', (req, res) => {
 		req.logout();
 		res.redirect('/');
 	});
+	//get the xcurrent user for testing..
 	app.get('/api/current_user', (req, res) => {
 		res.send(req.user);
 	});
