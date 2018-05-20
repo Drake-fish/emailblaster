@@ -16,6 +16,7 @@ module.exports = app => {
 	app.post('/api/surveys/webhooks', (req, res) => {
 		//pull of just the survey id and choice
 		const p = new Path('/api/surveys/:surveyId/:choice');
+		console.log(p);
 		_.chain(req.body)
 			//iterate over the req.body
 			.map(({ email, url }) => {
