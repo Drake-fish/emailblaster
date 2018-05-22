@@ -1,10 +1,12 @@
 import React from 'react';
+import Hero from './landing/Hero';
+import Features from './landing/Features';
 
 const Landing = () => {
 	return (
-		<div style={{ textAlign: 'center' }}>
-			<h1>Email Blaster!</h1>
-			<h5>Blast emails to your users and get the feedback you deserve!!</h5>
+		<div>
+			<Hero />
+			<Features />
 		</div>
 	);
 };

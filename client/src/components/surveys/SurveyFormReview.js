@@ -5,7 +5,14 @@ import { withRouter } from 'react-router-dom';
 import formFields from './formFields';
 import * as actions from '../../actions';
 
-const SurveyFormReview = ({ onCancel, formValues, submitSurveys, history }) => {
+const SurveyFormReview = ({
+	onCancel,
+	formValues,
+	submitSurveys,
+	history,
+	onComplete,
+	onSendClick
+}) => {
 	const reviewFields = formFields.map(({ name, label }) => {
 		return (
 			<div key={name}>
@@ -14,6 +21,13 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurveys, history }) => {
 			</div>
 		);
 	});
+	const handleSubmit = function() {
+		submitSurveys(formValues, history);
+		onComplete();
+		window.setTimeout(() => {
+			onSendClick();
+		}, 2000);
+	};
 	return (
 		<div>
 			<h5>Please Confirm Your Survey!</h5>
@@ -24,7 +38,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurveys, history }) => {
 				Back
 			</button>
 			<button
-				onClick={() => submitSurveys(formValues, history)}
+				onClick={() => handleSubmit()}
 				className="green btn-flat right white-text">
 				Send Emails!
 				<i className="material-icons right">send</i>

@@ -16,7 +16,7 @@ module.exports = app => {
 	app.post('/api/surveys/webhooks', (req, res) => {
 		//pull of just the survey id and choice
 		const p = new Path('/api/surveys/:surveyId/:choice');
-		console.log(p);
+
 		_.chain(req.body)
 			//iterate over the req.body
 			.map(({ email, url }) => {
@@ -61,13 +61,28 @@ module.exports = app => {
 	});
 
 	//return a list of surveys for a specifc user tell mongo not to return the long list of recipients
+	// app.get('/api/surveys', requireLogin, async (req, res) => {
+	// 	const surveys = await Survey.find({
+	// 		_user: req.user.id
+	// 	}).select({
+	// 		recipients: false
+	// 	});
+	// 	res.send(surveys);
+	// });
+
 	app.get('/api/surveys', requireLogin, async (req, res) => {
 		const surveys = await Survey.find({
 			_user: req.user.id
-		}).select({
-			recipients: false
 		});
 		res.send(surveys);
+	});
+
+	//delete one of the campaigns
+	app.post('/api/surveys/delete', requireLogin, async (req, res) => {
+		const { surveyId } = req.body;
+		const surveys = await Survey.remove({
+			_id: surveyId
+		}).exec();
 	});
 
 	//Create our survey instance and send out a big email!
