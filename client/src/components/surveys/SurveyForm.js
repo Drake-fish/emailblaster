@@ -23,7 +23,9 @@ class SurveyForm extends Component {
 	render() {
 		return (
 			<div>
-				<form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
+				<form
+					className="create-form"
+					onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
 					{this.renderFields()}
 					<button type="submit" className="teal btn-flat right white-text">
 						Next

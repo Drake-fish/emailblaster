@@ -12,8 +12,12 @@ const Hero = () => {
 					to make more money! This is the single best tool you need to get your
 					business back on track!
 				</p>
-				<span className="hero-login">Login</span>
-				<span className="hero-read">Read More</span>
+				<a href="/auth/google" className="hero-login">
+					Login
+				</a>
+				<a href="#more" className="hero-read">
+					Read More
+				</a>
 			</div>
 			<div className="hero-photo-container">
 				<img

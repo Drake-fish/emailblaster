@@ -10,7 +10,7 @@ const Features = () => {
 				<span className="title-underline-highlight" />
 				<span className="title-underline" />
 			</div>
-			<ul className="features-list">
+			<ul id="more" className="features-list">
 				<li>
 					<i className="material-icons feature-icon">add</i>
 					<h5>CREATE</h5>

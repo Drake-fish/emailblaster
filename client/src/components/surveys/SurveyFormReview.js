@@ -29,7 +29,7 @@ const SurveyFormReview = ({
 		}, 2000);
 	};
 	return (
-		<div>
+		<div className="review-survey-container">
 			<h5>Please Confirm Your Survey!</h5>
 			{reviewFields}
 			<button

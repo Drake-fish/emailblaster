@@ -1,3 +1,9 @@
+#root {
+  max-width: 1431px;
+  display: block;
+  margin: 0 auto;
+}
+
 .nav-wrapper {
   background: linear-gradient(to right, #b51070 0%, #811764 50%, #591d5f 100%);
   border-bottom: 0.5px solid #a9a9a9c9;
@@ -55,6 +61,7 @@
 .hero-container {
   color: white;
   background: linear-gradient(to right, #b51070 0%, #811764 50%, #591d5f 100%);
+  text-align: center;
 }
 
 .hero-text-container {
@@ -146,13 +153,15 @@
 
 /* Survey container stuff */
 
-.survey-list {
-  margin-top: 2rem;
+.surveys-list {
+  text-align: center;
 }
 
 .survey-card-container {
-  width: 90%;
-  margin: 0 auto;
+  width: 394px;
+  display: inline-block;
+  margin-right: 2rem;
+  margin-top: 3rem;
   position: relative;
   box-shadow: 0px 5px 46px #dedbdb;
 }
@@ -220,10 +229,55 @@
   margin: 0;
 }
 
+/* SURVEY FORM */
+
+.create-form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media(min-width:800px) {
+  .create-form {
+    width: 600px;
+  }
+}
+
+/* SURVEY REVIEW PAGE */
+
+.review-survey-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media(min-width:650px) {
+  .review-survey-container {
+    width: 500px;
+  }
+}
+
+/* SURVEY COMPLETE PAGE */
+
+.completion-container {
+  text-align: center;
+}
+
+.complete-thumb {
+  font-size: 5rem;
+  padding: 3rem;
+  border: 3px solid black;
+  border-radius: 50%;
+  color: green;
+}
+
+.completion-details h3 {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
 /* Survey Tracker  */
 
 .survey-tracker-container {
-  width: 85%;
+  width: 93%;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -271,15 +325,29 @@
   margin-top: 1rem;
 }
 
+@media(min-width:550px) {
+  .survey-tracker-container {
+    width: 431px;
+  }
+  .path-line {
+    width: 325px;
+  }
+}
+
 /* SEARCH FORM */
+
+.search-container {
+  text-align: center;
+}
 
 .search-form {
   position: relative;
+  display: inline-block;
 }
 
 #search {
   position: relative;
-  width: 80%;
+  width: 359px;
   margin: 0 auto;
   display: block;
   margin-top: 3rem;
@@ -289,8 +357,8 @@
 
 .search-icon {
   position: absolute;
-  top: 7px;
-  right: 48px;
+  top: 49px;
+  right: 10px;
   font-size: 2rem;
 }
 
@@ -329,12 +397,18 @@
   margin-left: 1rem;
 }
 
+@media(min-width: 550px) {
+  .survey-card-container {
+    width: 394px;
+  }
+}
+
 @media (min-width: 700px) {
-  .hero-continer {
-    text-align: left;
+  .hero-container {
+    padding-bottom: 4rem;
   }
   .hero-text-container {
-    width: 50%;
+    width: 35%;
     display: inline-block;
     margin-left: 2rem;
     box-sizing: border-box;
@@ -342,7 +416,7 @@
     padding-bottom: 3rem;
   }
   .hero-photo-container {
-    width: 45%;
+    width: 40%;
     display: inline-block;
     box-sizing: border-box;
     vertical-align: top;
