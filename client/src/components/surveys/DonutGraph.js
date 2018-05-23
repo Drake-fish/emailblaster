@@ -34,7 +34,13 @@ class DonutGraph extends Component {
 			legendTemplate:
 				'<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"><%if(segments[i].label){%><%=segments[i].label%><%}%></span></li><%}%></ul>'
 		};
-		return <DoughnutChart data={this.props.data} options={chartOptions} />;
+		return (
+			<DoughnutChart
+				className="donut-graph"
+				data={this.props.data}
+				options={chartOptions}
+			/>
+		);
 	}
 }
 

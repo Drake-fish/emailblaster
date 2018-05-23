@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSurveys, deleteSurvey } from '../../actions';
+import { fetchSurveys, deleteSurvey, searchSurveys } from '../../actions';
 import BarChart from './BarChart';
 import DonutGraph from './DonutGraph';
+import SurveySearch from './SurveySearch';
+
 class SurveyList extends Component {
 	componentDidMount() {
 		this.props.fetchSurveys();
@@ -14,7 +16,6 @@ class SurveyList extends Component {
 	}
 	renderSurveys() {
 		return this.props.surveys
-
 			.reverse()
 			.map(
 				({
@@ -30,12 +31,12 @@ class SurveyList extends Component {
 					let last = lastResponded
 						? new Date(lastResponded).toLocaleDateString()
 						: 'N/A';
-
 					let responded = yes + no;
 					let totalSent = recipients.length - responded;
 					let percentage = responded / recipients.length * 100;
+					let color = percentage > 75 ? '#4caf50' : '#d6aa43';
 					return (
-						<div className="survey-card-container">
+						<div key={_id} className="survey-card-container">
 							<span className="left sent">
 								Sent on: {new Date(dateSent).toLocaleDateString()}
 							</span>
@@ -49,8 +50,8 @@ class SurveyList extends Component {
 									data={[
 										{
 											value: responded,
-											color: '#d6aa43',
-											highlight: '#f1bf4b',
+											color: color,
+											highlight: color,
 											label: 'Responded'
 										},
 										{
@@ -87,7 +88,15 @@ class SurveyList extends Component {
 			);
 	}
 	render() {
-		return <div className="surveys-list">{this.renderSurveys()}</div>;
+		return (
+			<div className="surveys-list">
+				<SurveySearch
+					search={this.props.searchSurveys}
+					surveyList={this.props.surveys}
+				/>
+				{this.renderSurveys()}
+			</div>
+		);
 	}
 }
 
@@ -96,6 +105,8 @@ function mapStateToProps({ surveys }) {
 		surveys
 	};
 }
-export default connect(mapStateToProps, { fetchSurveys, deleteSurvey })(
-	SurveyList
-);
+export default connect(mapStateToProps, {
+	fetchSurveys,
+	deleteSurvey,
+	searchSurveys
+})(SurveyList);

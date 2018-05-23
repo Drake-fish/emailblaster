@@ -84,6 +84,15 @@ module.exports = app => {
 			_id: surveyId
 		}).exec();
 	});
+	//search Surveys!
+	app.post('/api/search', requireLogin, async (req, res) => {
+		const surveys = await Survey.find({
+			_user: req.user.id,
+			$text: { $search: req.body.query }
+		});
+		console.log(surveys);
+		res.send(surveys);
+	});
 
 	//Create our survey instance and send out a big email!
 	app.post('/api/surveys', requireLogin, enoughCredits, async (req, res) => {
@@ -97,7 +106,6 @@ module.exports = app => {
 			_user: req.user.id,
 			dateSent: Date.now()
 		});
-
 		//Great place to send an email!
 		const mailer = new Mailer(survey, surveyTemplate(survey));
 		//error handling

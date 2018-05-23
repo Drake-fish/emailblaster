@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 import SurveyForm from './SurveyForm';
 import SurveyFormReview from './SurveyFormReview';
 import SurveyComplete from './SurveyComplete';

@@ -13,6 +13,6 @@ const surveySchema = new Schema({
 	_user: { type: Schema.Types.ObjectId, ref: 'User' },
 	dateSent: Date,
 	lastResponded: Date
-});
+}).index({ title: 'text' });
 
 mongoose.model('surveys', surveySchema);

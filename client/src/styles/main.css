@@ -208,6 +208,7 @@
   margin-right: 2rem;
   margin-top: 1rem;
   color: #c32b2b;
+  cursor: pointer;
 }
 
 .sent {
@@ -268,6 +269,64 @@
 .tracker-sub {
   display: block;
   margin-top: 1rem;
+}
+
+/* SEARCH FORM */
+
+.search-form {
+  position: relative;
+}
+
+#search {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 3rem;
+  border: 1px solid black;
+  text-indent: 10px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 7px;
+  right: 48px;
+  font-size: 2rem;
+}
+
+/* ERROR MESSAGE */
+
+.error-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #c1bebebd;
+  z-index: 3;
+}
+
+.error-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 300px;
+  margin-top: -150px;
+  margin-left: -40%;
+  z-index: 4;
+  background: white;
+  box-shadow: 0 0 2px black;
+  border-radius: 7px;
+  text-align: center;
+}
+
+.error-message h3 {
+  margin-top: 5rem;
+}
+
+.cancel-error {
+  margin-left: 1rem;
 }
 
 @media (min-width: 700px) {
