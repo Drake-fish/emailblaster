@@ -2,23 +2,25 @@ const keys = require('../config/keys');
 module.exports = survey => {
 	return `
           <html>
-            <body>
-              <div style="text-align:center;">
-                <h3>I'd like your input!</h3>
-                <p>Please answer the following Question:</p>
-                <p>${survey.body}</p>
-                <div>
-                  <a href="${keys.redirectDomain}/api/surveys/${
+					<header>
+						<div className="email-header-container">
+							<i className="material-icons star">star</i>
+							<h2>Company Name</h2>
+						</div>
+					</header>
+					<body>
+						<h3>${survey.body}</h3>
+						<a href="${keys.redirectDomain}/api/surveys/${
 		survey.id
-	}/yes">Yes</a>
-                </div>
-                <div>
-                  <a href="${keys.redirectDomain}/api/surveys/${
+	}/yes" className="btn green">YES</a>
+						<a href="${keys.redirectDomain}/api/surveys/${
 		survey.id
-	}/no">No</a>
-                </div>
-              </div>
-            </body>
+	}/no" className="btn red">NO</a>
+					</body>
+					<footer>
+						<p>Email sent by Email Blaster</p>
+						<p>Copyright © 2018 Email Blaster</p>
+					</footer>
           </html>
           `;
 };

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import formFields from './formFields';
 import * as actions from '../../actions';
+import EmailTemplate from './EmailTemplate';
 
 const SurveyFormReview = ({
 	onCancel,
@@ -13,14 +14,6 @@ const SurveyFormReview = ({
 	onComplete,
 	onSendClick
 }) => {
-	const reviewFields = formFields.map(({ name, label }) => {
-		return (
-			<div key={name}>
-				<label>{label}</label>
-				<div>{formValues[name]}</div>
-			</div>
-		);
-	});
 	const handleSubmit = function() {
 		submitSurveys(formValues, history);
 		onComplete();
@@ -31,7 +24,7 @@ const SurveyFormReview = ({
 	return (
 		<div className="review-survey-container">
 			<h5>Please Confirm Your Survey!</h5>
-			{reviewFields}
+			<EmailTemplate formValues={formValues} />
 			<button
 				onClick={onCancel}
 				className="yellow darken-3 white-text btn-flat">
